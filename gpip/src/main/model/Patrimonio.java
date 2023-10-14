@@ -1,26 +1,43 @@
 package main.model;
 
+import java.util.Date;
+
 public class Patrimonio {
 
-    private int id;
-    private String numeroTombo;
-    private String descricao;
-    private String estado;
-    private String localizacao;
+   private long id;
+   private String numeroTombo;
+   private String descricao;
+   private String estado;
+   private Date dataAquisicao;
+   private Instituicao instituicao;
+   private Sala sala;
 
-    public Patrimonio(int id, String numeroTombo, String descricao, String estado, String localizacao) {
+    public Patrimonio(long id, String numeroTombo, String descricao, String estado,
+                      Date dataAquisicao, Instituicao instituicao, Sala sala) {
         this.id = id;
         this.numeroTombo = numeroTombo;
         this.descricao = descricao;
         this.estado = estado;
-        this.localizacao = localizacao;
+        this.dataAquisicao = dataAquisicao;
+        this.instituicao = instituicao;
+        this.sala = sala;
     }
 
-    public int getId() {
+    public Patrimonio(long id, String numeroTombo, String descricao, String estado,
+                      Date dataAquisicao, Instituicao instituicao) {
+        this.id = id;
+        this.numeroTombo = numeroTombo;
+        this.descricao = descricao;
+        this.estado = estado;
+        this.dataAquisicao = dataAquisicao;
+        this.instituicao = instituicao;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -48,11 +65,27 @@ public class Patrimonio {
         this.estado = estado;
     }
 
-    public String getLocalizacao() {
-        return localizacao;
+    public Date getDataAquisicao() {
+        return dataAquisicao;
     }
 
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
+    public void setDataAquisicao(Date dataAquisicao) {
+        this.dataAquisicao = dataAquisicao;
+    }
+
+    public Instituicao getInstituicao() {
+        return instituicao;
+    }
+
+    public void setInstituicao(Instituicao instituicao) {
+        this.instituicao = instituicao;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
     }
 }

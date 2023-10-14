@@ -3,17 +3,15 @@ package main.model;
 public class Instituicao {
 
     private int id;
-    private String nome;
-    private String endereco;
-    private String usuario;
-    private String senha;
+    private String nomeInstituicao;
+    private Localizacao localizacao;
+    private Usuario usuario;
 
-    public Instituicao(int id, String nome, String endereco, String usuario, String senha) {
+    public Instituicao(int id, String nomeInstituicao, Localizacao localizacao, Usuario usuario) {
         this.id = id;
-        this.nome = nome;
-        this.endereco = endereco;
+        this.nomeInstituicao = nomeInstituicao;
+        this.localizacao = localizacao;
         this.usuario = usuario;
-        this.senha = senha;
     }
 
     public int getId() {
@@ -24,35 +22,27 @@ public class Instituicao {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeInstituicao() {
+        return nomeInstituicao;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeInstituicao(String nomeInstituicao) {
+        this.nomeInstituicao = nomeInstituicao;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public Localizacao getLocalizacao() {
+        return localizacao;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setLocalizacao(Localizacao localizacao) {
+        this.localizacao = localizacao;
     }
 
-    public String getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 }

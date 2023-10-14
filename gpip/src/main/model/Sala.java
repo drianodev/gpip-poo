@@ -2,25 +2,24 @@ package main.model;
 
 public class Sala {
 
-    private int id;
-    private int capacidade;
+    private long id;
     private int unidade;
     private int numeroDaSala;
+    private Instituicao instituicao;
 
-    public int getId() {
+    public Sala(long id, int unidade, int numeroDaSala, Instituicao instituicao) {
+        this.id = id;
+        this.unidade = unidade;
+        this.numeroDaSala = numeroDaSala;
+        this.instituicao = instituicao;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
-    }
-
-    public int getCapacidade() {
-        return capacidade;
-    }
-
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
     }
 
     public int getUnidade() {
@@ -37,5 +36,13 @@ public class Sala {
 
     public void setNumeroDaSala(int numeroDaSala) {
         this.numeroDaSala = numeroDaSala;
+    }
+
+    public Instituicao getInstituicao() {
+        return instituicao;
+    }
+
+    public void setInstituicao(Instituicao instituicao) {
+        this.instituicao = instituicao;
     }
 }
