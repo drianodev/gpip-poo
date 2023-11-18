@@ -1,10 +1,11 @@
-package main.model;
+package main.model.entity;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Patrimonio {
 
-   private long id;
+   private UUID id;
    private String numeroTombo;
    private String descricao;
    private String estado;
@@ -12,9 +13,9 @@ public class Patrimonio {
    private Instituicao instituicao;
    private Sala sala;
 
-    public Patrimonio(long id, String numeroTombo, String descricao, String estado,
+    public Patrimonio(String numeroTombo, String descricao, String estado,
                       Date dataAquisicao, Instituicao instituicao, Sala sala) {
-        this.id = id;
+        this.id = UUID.randomUUID();
         this.numeroTombo = numeroTombo;
         this.descricao = descricao;
         this.estado = estado;
@@ -23,9 +24,9 @@ public class Patrimonio {
         this.sala = sala;
     }
 
-    public Patrimonio(long id, String numeroTombo, String descricao, String estado,
+    public Patrimonio(String numeroTombo, String descricao, String estado,
                       Date dataAquisicao, Instituicao instituicao) {
-        this.id = id;
+        this.id = UUID.randomUUID();
         this.numeroTombo = numeroTombo;
         this.descricao = descricao;
         this.estado = estado;
@@ -33,11 +34,11 @@ public class Patrimonio {
         this.instituicao = instituicao;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

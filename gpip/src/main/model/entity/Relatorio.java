@@ -1,30 +1,31 @@
-package main.model;
+package main.model.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class Relatorio {
 
-    private long id;
+    private UUID id;
     private String criterio;
     private Date dataGeracao;
     private Patrimonio patrimonio;
 
     private static List<Relatorio> relatorios = new ArrayList<>();
 
-    public Relatorio(long id, String criterio, Date dataGeracao, Patrimonio patrimonio) {
-        this.id = id;
+    public Relatorio(String criterio, Date dataGeracao, Patrimonio patrimonio) {
+        this.id = UUID.randomUUID();
         this.criterio = criterio;
         this.dataGeracao = dataGeracao;
         this.patrimonio = patrimonio;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

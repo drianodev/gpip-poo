@@ -2,8 +2,8 @@ package test;
 
 import static org.junit.Assert.*;
 
-import main.model.Manutencao;
-import main.model.Patrimonio;
+import main.model.entity.Manutencao;
+import main.model.entity.Patrimonio;
 import org.junit.Test;
 import java.util.Date;
 
@@ -11,11 +11,10 @@ public class ManutencaoTest {
 
     @Test
     public void testConstrutorEGetters() {
-        Patrimonio patrimonio = new Patrimonio(1, "PT123", "Descrição do patrimônio", "Bom estado", new Date(), null, null);
+        Patrimonio patrimonio = new Patrimonio("PT123", "Descrição do patrimônio", "Bom estado", new Date(), null, null);
         Date data = new Date();  // Simulando a data atual
-        Manutencao manutencao = new Manutencao(1, data, "Preventiva", "Descrição da manutenção", patrimonio);
+        Manutencao manutencao = new Manutencao(data, "Preventiva", "Descrição da manutenção", patrimonio);
 
-        assertEquals(1, manutencao.getId());
         assertEquals(data, manutencao.getData());
         assertEquals("Preventiva", manutencao.getTipoManutencao());
         assertEquals("Descrição da manutenção", manutencao.getDescricao());
@@ -24,7 +23,7 @@ public class ManutencaoTest {
 
     @Test
     public void testSetters() {
-        Manutencao manutencao = new Manutencao(1, new Date(), "Corretiva", "Descrição inicial", null);
+        Manutencao manutencao = new Manutencao(new Date(), "Corretiva", "Descrição inicial", null);
 
         Date novaData = new Date();
         manutencao.setData(novaData);
@@ -36,7 +35,7 @@ public class ManutencaoTest {
         manutencao.setDescricao("Nova descrição");
         assertEquals("Nova descrição", manutencao.getDescricao());
 
-        Patrimonio novoPatrimonio = new Patrimonio(2, "PT456", "Novo patrimônio", "Ótimo estado", new Date(), null, null);
+        Patrimonio novoPatrimonio = new Patrimonio("PT456", "Novo patrimônio", "Ótimo estado", new Date(), null, null);
         manutencao.setPatrimonio(novoPatrimonio);
         assertEquals(novoPatrimonio, manutencao.getPatrimonio());
     }

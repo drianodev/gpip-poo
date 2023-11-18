@@ -1,24 +1,26 @@
-package main.model;
+package main.model.entity;
+
+import java.util.UUID;
 
 public class Sala {
 
-    private long id;
+    private UUID id;
     private int unidade;
     private int numeroDaSala;
     private Instituicao instituicao;
 
-    public Sala(long id, int unidade, int numeroDaSala, Instituicao instituicao) {
-        this.id = id;
+    public Sala(int unidade, int numeroDaSala, Instituicao instituicao) {
+        this.id = UUID.randomUUID();
         this.unidade = unidade;
         this.numeroDaSala = numeroDaSala;
         this.instituicao = instituicao;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

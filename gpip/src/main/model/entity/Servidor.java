@@ -1,30 +1,31 @@
-package main.model;
+package main.model.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class Servidor {
 
-    private long id;
+    private UUID id;
     private String cargo;
     private Usuario usuario;
     private Instituicao instituicao;
     private List<Patrimonio> patrimonios;
 
 
-    public Servidor(long id, String cargo, Usuario usuario, Instituicao instituicao) {
-        this.id = id;
+    public Servidor(String cargo, Usuario usuario, Instituicao instituicao) {
+        this.id = UUID.randomUUID();
         this.cargo = cargo;
         this.usuario = usuario;
         this.patrimonios = new ArrayList<>();
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -65,6 +66,6 @@ public class Servidor {
     }
 
     public void solicitarManutencao(Patrimonio patrimonio, String descricao, Usuario responsavel) {
-        Manutencao manutencao = new Manutencao(1, new Date(), "Tipo de Manutenção", descricao, patrimonio);
+        Manutencao manutencao = new Manutencao(new Date(), "Tipo de Manutenção", descricao, patrimonio);
     }
 }

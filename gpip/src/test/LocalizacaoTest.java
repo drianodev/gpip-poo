@@ -1,6 +1,6 @@
 package test;
 
-import main.model.Localizacao;
+import main.model.entity.Localizacao;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,7 +9,7 @@ public class LocalizacaoTest {
 
     @Test
     public void testConstrutorEGetters() {
-        Localizacao localizacao = new Localizacao(1, "Rua A", "123", "Bairro1", "Cidade1", "Estado1", "12345-678");
+        Localizacao localizacao = new Localizacao("Rua A", "123", "Bairro1", "Cidade1", "Estado1", "12345-678");
 
         assertEquals(1, localizacao.getId());
         assertEquals("Rua A", localizacao.getLogradouro());

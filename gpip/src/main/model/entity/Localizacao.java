@@ -1,8 +1,10 @@
-package main.model;
+package main.model.entity;
+
+import java.util.UUID;
 
 public class Localizacao {
 
-    private long id;
+    private UUID id;
     private String logradouro;
     private String numero;
     private String bairro;
@@ -10,8 +12,8 @@ public class Localizacao {
     private String estado;
     private String cep;
 
-    public Localizacao(long id, String logradouro, String numero, String bairro, String cidade, String estado, String cep) {
-        this.id = id;
+    public Localizacao(String logradouro, String numero, String bairro, String cidade, String estado, String cep) {
+        this.id = UUID.randomUUID();
         this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;
@@ -20,11 +22,11 @@ public class Localizacao {
         this.cep = cep;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

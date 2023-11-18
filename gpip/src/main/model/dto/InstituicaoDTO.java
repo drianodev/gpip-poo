@@ -1,13 +1,16 @@
-package main.model;
+package main.model.dto;
 
-public class Instituicao {
+import main.model.entity.Localizacao;
+import main.model.entity.Usuario;
+
+public class InstituicaoDTO {
 
     private int id;
     private String nomeInstituicao;
     private Localizacao localizacao;
     private Usuario usuario;
 
-    public Instituicao(int id, String nomeInstituicao, Localizacao localizacao, Usuario usuario) {
+    public InstituicaoDTO(int id, String nomeInstituicao, Localizacao localizacao, Usuario usuario) {
         this.id = id;
         this.nomeInstituicao = nomeInstituicao;
         this.localizacao = localizacao;

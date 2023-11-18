@@ -1,30 +1,31 @@
-package main.model;
+package main.model.entity;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class Usuario {
 
-    private long id;
+    private UUID id;
     private String email;
     private String nome;
     private String senha;
 
     private static Map<String, Usuario> usuariosCadastrados = new HashMap<>();
 
-    public Usuario(long id, String email, String nome, String senha) {
-        this.id = id;
+    public Usuario(String email, String nome, String senha) {
+        this.id = UUID.randomUUID();
         this.email = email;
         this.nome = nome;
         this.senha = senha;
     }
 
-    public static boolean cadastrar(long id, String email, String nome, String senha) {
+    public static boolean cadastrar(String email, String nome, String senha) {
         if (usuariosCadastrados.containsKey(email)) {
             return false;
         }
 
-        Usuario novoUsuario = new Usuario(id, email, nome, senha);
+        Usuario novoUsuario = new Usuario(email, nome, senha);
         usuariosCadastrados.put(email, novoUsuario);
         return true;
     }
@@ -34,11 +35,11 @@ public class Usuario {
         return usuario != null && usuario.getSenha().equals(senha);
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

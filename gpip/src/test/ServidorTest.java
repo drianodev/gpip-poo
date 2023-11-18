@@ -1,6 +1,6 @@
 package test;
 
-import main.model.*;
+import main.model.entity.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,11 +16,11 @@ public class ServidorTest {
 
     @Before
     public void setUp() {
-        Usuario usuario = new Usuario(1, "usuario@exemplo.com", "Usuário Exemplo", "senha");
-        Instituicao instituicao = new Instituicao(1, "Instituição Exemplo", new Localizacao(1, "Rua A", "123", "Bairro1", "Cidade1", "Estado1", "12345-678"), usuario);
-        servidor = new Servidor(1, "Cargo Exemplo", usuario, instituicao);
-        patrimonio = new Patrimonio(1, "PT123", "Descrição do Patrimônio", "Bom estado", new Date(), null, null);
-        sala = new Sala(1, 1, 101, instituicao);
+        Usuario usuario = new Usuario("usuario@exemplo.com", "Usuário Exemplo", "senha");
+        Instituicao instituicao = new Instituicao("Instituição Exemplo", new Localizacao("Rua A", "123", "Bairro1", "Cidade1", "Estado1", "12345-678"), usuario);
+        servidor = new Servidor("Cargo Exemplo", usuario, instituicao);
+        patrimonio = new Patrimonio("PT123", "Descrição do Patrimônio", "Bom estado", new Date(), null, null);
+        sala = new Sala(1, 101, instituicao);
     }
 
     @Test

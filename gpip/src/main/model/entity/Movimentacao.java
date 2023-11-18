@@ -1,28 +1,29 @@
-package main.model;
+package main.model.entity;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Movimentacao {
 
-    private long id;
+    private UUID id;
     private Date dataMovimentacao;
     private Usuario responsavel;
     private Patrimonio patrimonio;
     private String tipoMovimentacao;
 
-    public Movimentacao(long id, Date dataMovimentacao, Usuario responsavel, Patrimonio patrimonio, String tipoMovimentacao) {
-        this.id = id;
+    public Movimentacao(Date dataMovimentacao, Usuario responsavel, Patrimonio patrimonio, String tipoMovimentacao) {
+        this.id = UUID.randomUUID();
         this.dataMovimentacao = dataMovimentacao;
         this.responsavel = responsavel;
         this.patrimonio = patrimonio;
         this.tipoMovimentacao = tipoMovimentacao;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

@@ -1,28 +1,29 @@
-package main.model;
+package main.model.entity;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Manutencao {
 
-    private long id;
+    private UUID id;
     private Date data;
     private String tipoManutencao;
     private String descricao;
     private Patrimonio patrimonio;
 
-    public Manutencao(long id, Date data, String tipoManutencao, String descricao, Patrimonio patrimonio) {
-        this.id = id;
+    public Manutencao(Date data, String tipoManutencao, String descricao, Patrimonio patrimonio) {
+        this.id = UUID.randomUUID();
         this.data = data;
         this.tipoManutencao = tipoManutencao;
         this.descricao = descricao;
         this.patrimonio = patrimonio;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
