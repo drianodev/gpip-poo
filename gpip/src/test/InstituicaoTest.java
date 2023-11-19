@@ -3,7 +3,6 @@ package test;
 import main.model.entity.Instituicao;
 import main.model.entity.Localizacao;
 import main.model.entity.Usuario;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

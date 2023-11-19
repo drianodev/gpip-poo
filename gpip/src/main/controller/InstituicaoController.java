@@ -14,6 +14,10 @@ public class InstituicaoController {
                 new Usuario("admin@email.com", "admin", "senha"));
     }
 
+    public Instituicao getInstituicao() {
+        return instituicao;
+    }
+
     public void exibirDetalhesInstituicao() {
         // Aqui você pode chamar métodos do modelo para obter informações e passá-las para a view.
         System.out.println("Detalhes da Instituicao:");
