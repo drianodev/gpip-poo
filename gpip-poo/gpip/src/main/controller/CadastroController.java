@@ -6,7 +6,6 @@ import main.services.isValidName;
 import main.services.isValidPassword;
 
 public class CadastroController {
-    private Usuario usuario;
 
     public CadastroController(){
 
