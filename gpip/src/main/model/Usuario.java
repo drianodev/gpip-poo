@@ -14,7 +14,7 @@ public class Usuario {
     private String senha;
 
     private static Map<String, Usuario> usuariosCadastrados = new HashMap<>();
-    private static final String DATABASE_FILE = "userDatabase.txt";
+    private static final String DATABASE_FILE = "gpip\\Database\\userDatabase.txt";
 
     public Usuario(long id, String email, String nome, String senha) {
         this.id = id;
