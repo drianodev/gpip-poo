@@ -16,6 +16,9 @@ public class loginService {
 
                     if (emailNoArquivo.equals(email)) {
                         if (senhaNoArquivo.equals(password)) {
+                            if(partes.length == 4){
+                                return "Admin";
+                            }
                             return "Login";
                         } else {
                             return "Senha incorreta";
