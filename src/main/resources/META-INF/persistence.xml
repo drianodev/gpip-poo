@@ -10,7 +10,7 @@
             <!-- Configurações do banco de dados -->
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gpip"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
-            <property name="javax.persistence.jdbc.password" value="1234"/>
+            <property name="javax.persistence.jdbc.password" value="123"/>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 
             <property name="javax.persistence.jdbc.schema-generation.create-source" value="metadata"/>

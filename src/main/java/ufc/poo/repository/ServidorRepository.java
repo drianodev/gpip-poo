@@ -4,28 +4,32 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import ufc.poo.model.entity.Localizacao;
+import ufc.poo.model.entity.Servidor;
 
 import java.util.List;
 import java.util.UUID;
 
-public class LocalizacaoRepository {
+public class ServidorRepository {
 
     private EntityManager em;
     private final EntityManagerFactory emf;
 
-    public LocalizacaoRepository() {
+    public ServidorRepository() {
         this.em = null;
         this.emf = Persistence.createEntityManagerFactory("gpipPU");
     }
 
-    public void salvarLocalizacao(Localizacao localizacao) {
+    public void salvarServidor(Servidor servidor) {
         em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
 
         try {
             transaction.begin();
-            em.persist(localizacao);
+            if (!em.contains(servidor)) {
+                // Se a entidade não está gerenciada, carregue-a novamente ou use merge
+                servidor = em.merge(servidor);
+            }
+            em.persist(servidor);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null && transaction.isActive()) {
@@ -35,19 +39,19 @@ public class LocalizacaoRepository {
         }
     }
 
-    public Localizacao buscarPorId(UUID id) {
+    public Servidor buscarPorId(UUID id) {
         em = emf.createEntityManager();
         try {
-            return em.find(Localizacao.class, id);
+            return em.find(Servidor.class, id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public List<Localizacao> listarTodas() {
+    public List<Servidor> listarTodos() {
         em = emf.createEntityManager();
         try {
-            return em.createQuery("SELECT i FROM Localizacao i", Localizacao.class).getResultList();
+            return em.createQuery("SELECT i FROM Servidor i", Servidor.class).getResultList();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

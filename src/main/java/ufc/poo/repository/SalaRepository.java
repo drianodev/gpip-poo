@@ -4,28 +4,28 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import ufc.poo.model.entity.Localizacao;
+import ufc.poo.model.entity.Sala;
 
 import java.util.List;
 import java.util.UUID;
 
-public class LocalizacaoRepository {
+public class SalaRepository {
 
     private EntityManager em;
     private final EntityManagerFactory emf;
 
-    public LocalizacaoRepository() {
+    public SalaRepository() {
         this.em = null;
         this.emf = Persistence.createEntityManagerFactory("gpipPU");
     }
 
-    public void salvarLocalizacao(Localizacao localizacao) {
+    public void salvarSala(Sala sala) {
         em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
 
         try {
             transaction.begin();
-            em.persist(localizacao);
+            em.persist(sala);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null && transaction.isActive()) {
@@ -35,19 +35,19 @@ public class LocalizacaoRepository {
         }
     }
 
-    public Localizacao buscarPorId(UUID id) {
+    public Sala buscarPorId(UUID id) {
         em = emf.createEntityManager();
         try {
-            return em.find(Localizacao.class, id);
+            return em.find(Sala.class, id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public List<Localizacao> listarTodas() {
+    public List<Sala> listarTodas() {
         em = emf.createEntityManager();
         try {
-            return em.createQuery("SELECT i FROM Localizacao i", Localizacao.class).getResultList();
+            return em.createQuery("SELECT s FROM Sala s", Sala.class).getResultList();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

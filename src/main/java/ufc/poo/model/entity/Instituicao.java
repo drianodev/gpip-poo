@@ -19,12 +19,11 @@ public class Instituicao {
     @JoinColumn(name = "localizacao_id", nullable = false)
     private Localizacao localizacao;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     public Instituicao(String nomeInstituicao, Localizacao localizacao, Usuario usuario) {
-//        this.id = UUID.randomUUID();
         this.nomeInstituicao = nomeInstituicao;
         this.localizacao = localizacao;
         this.usuario = usuario;
