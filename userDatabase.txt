@@ -1,0 +1,3 @@
+1;alexsandro@example.com;ALexsandro Martins;senha123
+2;rogerio@example.com;Rogério Pio;senha456
+3;teste@example.com;Pedro Alencar;senha789
