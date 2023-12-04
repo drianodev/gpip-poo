@@ -13,12 +13,22 @@ public class LoginView {
 
     public void Login(){
         Scanner scanner = new Scanner(System.in);
-        String email, password;
-        System.out.println("Digite seu e-mail: ");
-        email = scanner.next();
-        System.out.println("Digite sua senha: ");
-        password = scanner.next();
-        System.out.println(loginController.Login(email, password));
+
+        System.out.println("Bem-vindo! Por favor, faça login:");
+
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine();
+
+        if (loginController.Login(email, senha).equals("Login")) {
+            System.out.println("Login bem-sucedido!");
+        }else if(loginController.Login(email, senha).equals("Admin")){
+            System.out.println("Admin");
+        }else {
+            System.out.println("Falha no login. Verifique suas credenciais.");
+        }
         scanner.close();
     }
 }

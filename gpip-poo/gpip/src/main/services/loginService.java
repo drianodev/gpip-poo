@@ -11,12 +11,12 @@ public class loginService {
             while ((linha = reader.readLine()) != null) {
                 String[] partes = linha.split(",");
                 if (partes.length >= 2) {
-                    String emailNoArquivo = partes[0].trim();
-                    String senhaNoArquivo = partes[1].trim();
+                    String emailNoArquivo = partes[1].trim();
+                    String senhaNoArquivo = partes[2].trim();
 
                     if (emailNoArquivo.equals(email)) {
                         if (senhaNoArquivo.equals(password)) {
-                            if(partes.length == 4){
+                            if(partes.length == 5){
                                 return "Admin";
                             }
                             return "Login";
