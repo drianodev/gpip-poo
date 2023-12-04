@@ -1,7 +1,6 @@
 package main.view;
 
 import main.controller.InstituicaoController;
-import main.entity.Instituicao;
 
 public class CadastroInstituicao {
 

@@ -1,7 +1,6 @@
 package main.view;
 
 import main.controller.SalaController;
-import main.entity.Sala;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
