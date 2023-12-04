@@ -2,14 +2,13 @@ package main.view;
 
 import main.controller.PatrimonioController;
 import main.controller.SalaController;
-import main.entity.Patrimonio;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LogadoView {
     public static void MenuLogado(String email){
         Scanner scanner = new Scanner(System.in);
+        System.out.println("==================================");
         System.out.println("Bem vinde");
         System.out.println("Escolha uma opção: ");
         System.out.println("0- Sair");
@@ -19,6 +18,7 @@ public class LogadoView {
         System.out.println("4- Remover patrimônio");
         System.out.println("5- Movimentar patrimônio");
         System.out.println("6- Solicitar manutenção");
+        System.out.println("==================================");
 
         try{
             int opcao  = scanner.nextInt();

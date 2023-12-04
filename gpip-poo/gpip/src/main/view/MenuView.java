@@ -9,9 +9,11 @@ import java.util.Scanner;
 public class MenuView {
     public static void menu(){
         Scanner scanner = new Scanner(System.in);
+        System.out.println("==============MENU================");
         System.out.println("Bem-vindo(a), escolha uma opção:");
         System.out.println("1- Cadastro");
         System.out.println("2- Login");
+        System.out.println("==================================");
         try{
             int opcao = scanner.nextInt();
             switch (opcao){
