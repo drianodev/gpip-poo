@@ -13,6 +13,9 @@ public class UsuarioController {
     public UsuarioController(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
+    public boolean logarUsuario(String email, String senha) {
+        return Usuario.fazerLogin(email, senha);
+    }
 
     public void salvarUsuario(Usuario usuario) {
         usuarioRepository.salvarUsuario(usuario);
