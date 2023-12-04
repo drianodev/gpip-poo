@@ -1,10 +1,10 @@
-package main.services;
+package main.model;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class loginService {
+public class LoginModel {
     public static String verificarCredenciais(String caminhoArquivo, String email, String password) {
         try (BufferedReader reader = new BufferedReader(new FileReader(caminhoArquivo))) {
             String linha;
@@ -16,7 +16,7 @@ public class loginService {
 
                     if (emailNoArquivo.equals(email)) {
                         if (senhaNoArquivo.equals(password)) {
-                            if(partes.length == 5){
+                            if(partes.length == 6){
                                 return "Admin";
                             }
                             return "Login";

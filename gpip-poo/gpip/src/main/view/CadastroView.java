@@ -14,13 +14,15 @@ public class CadastroView {
     public void CadastrarUsuario(){
         Scanner scanner = new Scanner(System.in);
         String email, name, password;
-        System.out.println("Digite seu email: ");
+        System.out.print("Digite seu email: ");
         email = scanner.nextLine();
-        System.out.println("Digite seu nome e sobrenome: ");
+        System.out.print("Digite seu nome e sobrenome: ");
         name = scanner.nextLine();
-        System.out.println("Digite sua senha: ");
+        System.out.print("Digite sua senha: ");
         password = scanner.nextLine();
-        cadastroController.CadastrarUsuario(email, name, password);
+        System.out.print("Digite o ID da instituição que faz parte: ");
+        int idInstituicao = scanner.nextInt();
+        cadastroController.CadastrarUsuario(email, name, password, idInstituicao);
         scanner.close();
     }
 }

@@ -1,8 +1,6 @@
 package main.controller;
 
-import main.services.loginService;
-
-import static main.services.loginService.verificarCredenciais;
+import static main.model.LoginModel.verificarCredenciais;
 
 public class LoginController {
 

@@ -23,11 +23,12 @@ public class LoginView {
         String senha = scanner.nextLine();
 
         if (loginController.Login(email, senha).equals("Login")) {
-            System.out.println("Login bem-sucedido!");
+            LogadoView.MenuLogado(email);
         }else if(loginController.Login(email, senha).equals("Admin")){
-            System.out.println("Admin");
+            AdminLogado.adminLogado();
         }else {
             System.out.println("Falha no login. Verifique suas credenciais.");
+            MenuView.menu();
         }
         scanner.close();
     }

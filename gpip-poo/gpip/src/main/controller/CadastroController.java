@@ -1,8 +1,8 @@
 package main.controller;
 
-import main.entity.Usuario;
 import main.model.CadastroModel;
 import main.services.isValidEmail;
+import main.services.isValidInstituicao;
 import main.services.isValidName;
 import main.services.isValidPassword;
 
@@ -10,9 +10,10 @@ public class CadastroController {
 
     public CadastroController(){
     }
-    public void CadastrarUsuario(String email, String name, String password){
-        if(isValidEmail.validEmail(email) && isValidName.validName(name) && isValidPassword.validPassword(password)){
-            if(CadastroModel.CadastrarUsuario(email, password, name)){
+    public void CadastrarUsuario(String email, String name, String password, int id){
+        if(isValidEmail.validEmail(email) && isValidName.validName(name) && isValidPassword.validPassword(password) &&
+        isValidInstituicao.validInstituicao(id)){
+            if(CadastroModel.CadastrarUsuario(email, password, name, id)){
                 System.out.println("Cadastro realizado com sucesso!");
             }else{
                 System.out.println("E-mail já cadastrado.");

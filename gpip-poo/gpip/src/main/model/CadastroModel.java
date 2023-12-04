@@ -5,7 +5,7 @@ import java.io.*;
 public class CadastroModel {
     public CadastroModel() {
     }
-    public static boolean CadastrarUsuario(String email, String password, String name) {
+    public static boolean CadastrarUsuario(String email, String password, String name, int id) {
         String arquivo = "gpip/database/userDatabase.txt";
         int contador = 1;
         try (BufferedReader reader = new BufferedReader(new FileReader(arquivo));
@@ -22,7 +22,7 @@ public class CadastroModel {
                 }
             }
 
-            String novoUsuario = contador + "," + email + "," + password + "," + name;
+            String novoUsuario = contador + "," + email + "," + password + "," + name + "," + id;
             writer.write(novoUsuario);
             writer.newLine();
             return true;
