@@ -77,4 +77,8 @@ public class Localizacao {
     public void setCep(String cep) {
         this.cep = cep;
     }
+
+    public String getLocalizacao(){
+        return logradouro + "|" + numero + "|" + bairro + "|" + cidade +"|" + estado + "|" + cep;
+    }
 }

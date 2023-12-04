@@ -5,41 +5,22 @@ import java.util.UUID;
 
 public class Patrimonio {
 
-   private UUID id;
    private String numeroTombo;
    private String descricao;
    private String estado;
-   private Date dataAquisicao;
+   private String dataAquisicao;
    private Instituicao instituicao;
+   private String idInstituicao;
    private Sala sala;
 
-    public Patrimonio(String numeroTombo, String descricao, String estado,
-                      Date dataAquisicao, Instituicao instituicao, Sala sala) {
-        this.id = UUID.randomUUID();
-        this.numeroTombo = numeroTombo;
+
+    public Patrimonio(String tombo, String descricao, String estado, String dataAquisicao, String idInstituicao, String numSala, String unidadeSala) {
+        this.numeroTombo = tombo;
         this.descricao = descricao;
         this.estado = estado;
         this.dataAquisicao = dataAquisicao;
-        this.instituicao = instituicao;
-        this.sala = sala;
-    }
-
-    public Patrimonio(String numeroTombo, String descricao, String estado,
-                      Date dataAquisicao, Instituicao instituicao) {
-        this.id = UUID.randomUUID();
-        this.numeroTombo = numeroTombo;
-        this.descricao = descricao;
-        this.estado = estado;
-        this.dataAquisicao = dataAquisicao;
-        this.instituicao = instituicao;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
+        this.idInstituicao = idInstituicao;
+        this.sala = new Sala(numSala, unidadeSala, idInstituicao);
     }
 
     public String getNumeroTombo() {
@@ -66,11 +47,11 @@ public class Patrimonio {
         this.estado = estado;
     }
 
-    public Date getDataAquisicao() {
+    public String getDataAquisicao() {
         return dataAquisicao;
     }
 
-    public void setDataAquisicao(Date dataAquisicao) {
+    public void setDataAquisicao(String dataAquisicao) {
         this.dataAquisicao = dataAquisicao;
     }
 
@@ -88,5 +69,15 @@ public class Patrimonio {
 
     public void setSala(Sala sala) {
         this.sala = sala;
+    }
+
+    public void setIdInstituicao(String idInstituicao){this.idInstituicao = idInstituicao;}
+
+    public String getIdInstituicao(){
+        return idInstituicao;
+    }
+
+    public String getPatrimonio(Patrimonio patrimonio){
+        return patrimonio.getNumeroTombo() + "," + patrimonio.getDescricao() + "," + patrimonio.getEstado() + "," + patrimonio.getDataAquisicao() + "," + patrimonio.getIdInstituicao() + "," + sala.getNumeroDaSala() + "," + sala.getUnidade();
     }
 }

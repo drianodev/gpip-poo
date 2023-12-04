@@ -1,6 +1,8 @@
 package main.view;
 
+import main.controller.PatrimonioController;
 import main.controller.SalaController;
+import main.entity.Patrimonio;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -30,10 +32,11 @@ public class LogadoView {
                     salaView.CriarSala(email);
                     break;
                 case 3:
-                    System.out.println("rela");
+                    PatrimonioController patrimonioController = new PatrimonioController();
+                    AddPatrimonioView addPatrimonioView = new AddPatrimonioView(patrimonioController);
+                    addPatrimonioView.AddPatrimonio(email);
                     break;
                 default:
-                    System.out.println(3);
                     break;
             }
         }catch (InputMismatchException e){

@@ -3,6 +3,7 @@ package main.controller;
 import main.entity.Instituicao;
 import main.entity.Localizacao;
 import main.entity.Usuario;
+import main.model.InstituicaoModel;
 
 public class InstituicaoController {
 
@@ -11,11 +12,11 @@ public class InstituicaoController {
     public InstituicaoController() {
        }
 
-       public void cadastrarInstituicao(String nome, Localizacao localizacao) {
-        InstituicaoModel instituicaoModel = new InstituicaoModel();
-        if (!instituicaoModel.instituicaoExiste(localizacao)) {
-            instituicaoModel.InstituicaoModel(nome, localizacao);
-        } else {
+       public void CadastrarInstituicao(String nome, Localizacao localizacao) {
+        InstituicaoModel instituicaoModel = new InstituicaoModel(nome, localizacao);
+        if (instituicaoModel.CadastroInstituicao()) {
+            System.out.println("Instituição Cadastrada com sucesso!");
+        }else {
             System.out.println("Instituição com a mesma localização já existe.");
         }
     }
