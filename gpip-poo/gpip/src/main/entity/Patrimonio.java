@@ -37,7 +37,11 @@ public class Patrimonio {
     }
 
     public void setNumeroTombo(String numeroTombo) {
-        this.numeroTombo = numeroTombo;
+        if (numeroTombo != null && !numeroTombo.trim().isEmpty()) {
+            this.numeroTombo = numeroTombo.trim();
+        } else {
+            throw new IllegalArgumentException("Número do tombo não pode ser nulo ou vazio");
+        }
     }
 
     public String getDescricao() {

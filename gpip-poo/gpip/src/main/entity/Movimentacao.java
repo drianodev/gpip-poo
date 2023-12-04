@@ -56,6 +56,10 @@ public class Movimentacao {
     }
 
     public void setTipoMovimentacao(String tipoMovimentacao) {
-        this.tipoMovimentacao = tipoMovimentacao;
+        if (tipoMovimentacao != null && !tipoMovimentacao.trim().isEmpty()) {
+            this.tipoMovimentacao = tipoMovimentacao.trim();
+        } else {
+            throw new IllegalArgumentException("Tipo de movimentação não pode ser nulo ou vazio");
+        }
     }
 }

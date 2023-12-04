@@ -29,7 +29,11 @@ public class Instituicao {
     }
 
     public void setNomeInstituicao(String nomeInstituicao) {
-        this.nomeInstituicao = nomeInstituicao;
+        if (nomeInstituicao != null && !nomeInstituicao.trim().isEmpty()) {
+            this.nomeInstituicao = nomeInstituicao;
+        } else {
+            throw new IllegalArgumentException("Nome da instituição não pode ser nulo ou vazio");
+        }
     }
 
     public Localizacao getLocalizacao() {

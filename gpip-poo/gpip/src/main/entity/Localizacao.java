@@ -35,7 +35,11 @@ public class Localizacao {
     }
 
     public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
+        if (logradouro != null && !logradouro.trim().isEmpty()) {
+            this.logradouro = logradouro.trim();
+        } else {
+            throw new IllegalArgumentException("Logradouro não pode ser nulo ou vazio");
+        }
     }
 
     public String getNumero() {

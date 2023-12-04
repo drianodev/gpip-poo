@@ -40,7 +40,11 @@ public class Manutencao {
     }
 
     public void setTipoManutencao(String tipoManutencao) {
-        this.tipoManutencao = tipoManutencao;
+        if (tipoManutencao != null && !tipoManutencao.trim().isEmpty()) {
+            this.tipoManutencao = tipoManutencao.trim();
+        } else {
+            throw new IllegalArgumentException("Tipo de manutenção não pode ser nulo ou vazio");
+        }
     }
 
     public String getDescricao() {

@@ -30,7 +30,11 @@ public class Sala {
     }
 
     public void setUnidade(String unidade) {
-        this.unidade = unidade;
+        if (unidade != null && !unidade.trim().isEmpty()) {
+            this.unidade = unidade.trim();
+        } else {
+            throw new IllegalArgumentException("Unidade não pode ser nula ou vazia");
+        }
     }
 
     public String getNumeroDaSala() {

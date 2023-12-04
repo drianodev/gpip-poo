@@ -46,7 +46,11 @@ public class Usuario {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (email != null && email.matches("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}")) {
+            this.email = email;
+        } else {
+            throw new IllegalArgumentException("Formato de e-mail inválido");
+        }
     }
 
     public String getNome() {
