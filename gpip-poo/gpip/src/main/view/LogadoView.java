@@ -44,6 +44,12 @@ public class LogadoView {
                     PatrimonioController patrimonioController1 = new PatrimonioController();
                     RemovePatrimonioView removePatrimonioView = new RemovePatrimonioView(patrimonioController1);
                     removePatrimonioView.removerPatrimonio(email);
+                    break;
+                case 5:
+                    PatrimonioController patrimonioController2 = new PatrimonioController();
+                    MoverPatrimonioView moverPatrimonioView = new MoverPatrimonioView(patrimonioController2);
+                    moverPatrimonioView.MoverPatrimonio(email);
+                    break;
                 default:
                     break;
             }
