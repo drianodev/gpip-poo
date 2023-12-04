@@ -9,10 +9,14 @@ public class InstituicaoController {
     private Instituicao instituicao;
 
     public InstituicaoController() {
-    }
+       }
 
-    public static void CadastrarInstituicao(String nome, Localizacao localizacao) {
-        //Fazer Validações de nome e localização, caso esteja ok prosseguir pro model
-
+       public void cadastrarInstituicao(String nome, Localizacao localizacao) {
+        InstituicaoModel instituicaoModel = new InstituicaoModel();
+        if (!instituicaoModel.instituicaoExiste(localizacao)) {
+            instituicaoModel.InstituicaoModel(nome, localizacao);
+        } else {
+            System.out.println("Instituição com a mesma localização já existe.");
+        }
     }
 }
