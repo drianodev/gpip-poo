@@ -5,7 +5,7 @@ import main.controller.LoginController;
 import java.util.Scanner;
 
 public class LoginView {
-    private LoginController loginController;
+    private final LoginController loginController;
 
     public LoginView(LoginController loginController){
         this.loginController = loginController;
@@ -13,7 +13,7 @@ public class LoginView {
 
     public void Login(){
         Scanner scanner = new Scanner(System.in);
-
+        System.out.println("==============LOGIN===============");
         System.out.println("Bem-vindo! Por favor, faça login:");
 
         System.out.print("Email: ");

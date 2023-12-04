@@ -5,12 +5,13 @@ import main.model.PatrimonioModel;
 import main.services.BuscarInstituicao;
 import main.services.BuscarPatrimonio;
 import main.services.BuscarSala;
+
 import main.view.LogadoView;
+
 import main.view.MenuView;
 
 public class PatrimonioController {
 
-    private Patrimonio patrimonio;
     public PatrimonioController(){}
 
     public void addPatrimonio(String tombo, String descricao, String estado, String dataAquisicao, String idInstituicao, String numSala, String unidadeSala){
@@ -18,11 +19,18 @@ public class PatrimonioController {
         BuscarSala buscarSala = new BuscarSala();
         String id = buscarInstituicao.buscarInstituicaoByEmail(idInstituicao);
         if(!buscarInstituicao.buscarInstituicaoByEmail(idInstituicao).equals("Nada") && buscarSala.buscarSala(numSala, unidadeSala, id) != null){
-            patrimonio = new Patrimonio(tombo, descricao, estado, dataAquisicao, id, numSala, unidadeSala);
+            Patrimonio patrimonio = new Patrimonio(tombo, descricao, estado, dataAquisicao, id, numSala, unidadeSala);
             PatrimonioModel patrimonioModel = new PatrimonioModel();
+
             patrimonioModel.adicionarPatrimonio(patrimonio);
+
+            patrimonioModel.PatrimonioModel(patrimonio);
+            System.out.println();
+            System.out.println("Registro de Patrimônio feito com Sucesso!");
+            MenuView.menu();
         }else{
             System.out.println("Instituição ou sala não encontrada");
+            MenuView.menu();
         }
         LogadoView.MenuLogado(idInstituicao);
     }

@@ -1,3 +1,13 @@
+<<<<<<< HEAD
 a,a,a,a,1,1,1
 a,a,a,a,2,1,1
 a,a,a,a,3,1,1
+=======
+o,o,o,o,2,10,3
+tombo,p,p,p,2,10,3
+aqwe,dsda,aqqw,qzsas,2,10,3
+aqwwwe,qssada,adsad,dwfew,2,10,3
+aqqw,aqqwd,asda,asdas,2,10,3
+435678,Novo,Velho,12/04/2022,2,10,3
+678594,Movendo,Velho,23/03/2023,2,10,3
+>>>>>>> 4f33fdb (teste)
