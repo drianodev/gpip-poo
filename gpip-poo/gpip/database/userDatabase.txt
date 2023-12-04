@@ -4,3 +4,4 @@
 4,Thanos@gmail.com,Thanos12345,Thanos Destruidor,2
 5,Leticia@gmail.com,Let123456,Leticia Sousa,1
 6,alan@gmail.com,Alan123456,Alan Feitosa,2
+7,pio@gmail.com,Teste123,Rogerio Pio,1

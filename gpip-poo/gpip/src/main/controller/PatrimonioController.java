@@ -24,6 +24,7 @@ public class PatrimonioController {
         }else{
             System.out.println("Instituição ou sala não encontrada");
         }
+        LogadoView.MenuLogado(idInstituicao);
     }
 
     public void removePatrimonio(String numeroTombo, String email){
@@ -33,6 +34,7 @@ public class PatrimonioController {
         if(patrimonio != null){
             PatrimonioModel patrimonioModel = new PatrimonioModel();
             patrimonioModel.removerPatrimonio(patrimonio);
+            System.out.println("Patrimoônio removido");
         }else{
             System.out.println("Patrimonio não encontrado");
         }

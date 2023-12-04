@@ -15,6 +15,7 @@ public class PatrimonioModel {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("gpip/database/patrimonioDatabase.txt", true))) {
                 writer.write(patrimonio.getPatrimonioCompleto(patrimonio));
                 writer.newLine();
+                System.out.println("Patrimônio adicionado");
             } catch (IOException e) {
                 System.err.println("Erro ao ler o arquivo: " + e.getMessage());
             }
@@ -25,7 +26,6 @@ public class PatrimonioModel {
         BuscarPatrimonio buscarPatrimonio = new BuscarPatrimonio();
         if (buscarPatrimonio.buscarPatrimonio(patrimonio)) {
             List<String> linhas = new ArrayList<>();
-
             try (BufferedReader reader = new BufferedReader(new FileReader("gpip/database/patrimonioDatabase.txt"))) {
                 String linha;
                 while ((linha = reader.readLine()) != null) {
@@ -36,7 +36,6 @@ public class PatrimonioModel {
             } catch (IOException e) {
                 System.err.println("Erro ao ler o arquivo: " + e.getMessage());
             }
-
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("gpip/database/patrimonioDatabase.txt"))) {
                 for (String linha : linhas) {
                     writer.write(linha);

@@ -22,14 +22,8 @@ public class LoginView {
         System.out.print("Senha: ");
         String senha = scanner.nextLine();
 
-        if (loginController.Login(email, senha).equals("Login")) {
-            LogadoView.MenuLogado(email);
-        }else if(loginController.Login(email, senha).equals("Admin")){
-            AdminLogado.adminLogado();
-        }else {
-            System.out.println("Falha no login. Verifique suas credenciais.");
-            MenuView.menu();
-        }
+        loginController.Login(email, senha);
+
         scanner.close();
     }
 }

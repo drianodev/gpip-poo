@@ -1,11 +1,13 @@
 package main.model;
 
+import main.entity.Usuario;
+
 import java.io.*;
 
 public class CadastroModel {
     public CadastroModel() {
     }
-    public static boolean CadastrarUsuario(String email, String password, String name, int id) {
+    public static boolean CadastrarUsuario(Usuario usuario) {
         String arquivo = "gpip/database/userDatabase.txt";
         int contador = 1;
         try (BufferedReader reader = new BufferedReader(new FileReader(arquivo));
@@ -15,14 +17,14 @@ public class CadastroModel {
                 String[] partes = linha.split(",");
                 if (partes.length >= 2) {
                     String emailNoArquivo = partes[1].trim();
-                    if (emailNoArquivo.equals(email)) {
+                    if (emailNoArquivo.equals(usuario.getEmail())) {
                         return false;
                     }
                     contador++;
                 }
             }
 
-            String novoUsuario = contador + "," + email + "," + password + "," + name + "," + id;
+            String novoUsuario = contador + "," + usuario.getUser(usuario);
             writer.write(novoUsuario);
             writer.newLine();
             return true;

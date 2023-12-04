@@ -6,42 +6,40 @@ import java.util.UUID;
 
 public class Usuario {
 
-    private UUID id;
     private String email;
     private String nome;
     private String senha;
+    private String role;
+    private int idInstituicao;
 
-    private static Map<String, Usuario> usuariosCadastrados = new HashMap<>();
-
+    public Usuario(String email, String nome, String senha, String role) {
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+        this.role = role;
+    }
+    public Usuario(String email, String nome, String senha, int idInstituicao) {
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+        this.idInstituicao = idInstituicao;
+    }
     public Usuario(String email, String nome, String senha) {
-        this.id = UUID.randomUUID();
         this.email = email;
         this.nome = nome;
         this.senha = senha;
     }
 
-    public static boolean cadastrar(String email, String nome, String senha) {
-        if (usuariosCadastrados.containsKey(email)) {
-            return false;
-        }
-
-        Usuario novoUsuario = new Usuario(email, nome, senha);
-        usuariosCadastrados.put(email, novoUsuario);
-        return true;
+    public int getIdInstituicao() {
+        return idInstituicao;
     }
 
-    public static boolean fazerLogin(String email, String senha) {
-        Usuario usuario = usuariosCadastrados.get(email);
-        return usuario != null && usuario.getSenha().equals(senha);
+    public void setIdInstituicao(int idInstituicao) {
+        this.idInstituicao = idInstituicao;
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
+    public String getRole(){return role;}
+    public void setRole(String role){this.role = role;}
 
     public String getEmail() {
         return email;
@@ -67,11 +65,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public static Map<String, Usuario> getUsuariosCadastrados() {
-        return usuariosCadastrados;
-    }
-
-    public static void setUsuariosCadastrados(Map<String, Usuario> usuariosCadastrados) {
-        Usuario.usuariosCadastrados = usuariosCadastrados;
+    public String getUser(Usuario usuario){
+        return usuario.getEmail() + "," + usuario.getSenha() + "," + usuario.getNome() + "," + usuario.getIdInstituicao();
     }
 }
