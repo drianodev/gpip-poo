@@ -1,8 +1,10 @@
 package main.view;
 
 import main.controller.PatrimonioController;
+import main.controller.RelatorioController;
 import main.controller.SalaController;
 import main.entity.Patrimonio;
+import main.entity.Relatorio;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -24,7 +26,9 @@ public class LogadoView {
             int opcao  = scanner.nextInt();
             switch (opcao){
                 case 1:
-                    System.out.println("rela");
+                    RelatorioController relatorioController = new RelatorioController();
+                    RelatorioView relatorioView = new RelatorioView(relatorioController);
+                    relatorioView.gerarRelatorio(email);
                     break;
                 case 2:
                     SalaController salaController = new SalaController();
@@ -36,6 +40,10 @@ public class LogadoView {
                     AddPatrimonioView addPatrimonioView = new AddPatrimonioView(patrimonioController);
                     addPatrimonioView.AddPatrimonio(email);
                     break;
+                case 4:
+                    PatrimonioController patrimonioController1 = new PatrimonioController();
+                    RemovePatrimonioView removePatrimonioView = new RemovePatrimonioView(patrimonioController1);
+                    removePatrimonioView.removerPatrimonio(email);
                 default:
                     break;
             }

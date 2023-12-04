@@ -3,7 +3,10 @@ package main.controller;
 import main.entity.Patrimonio;
 import main.model.PatrimonioModel;
 import main.services.BuscarInstituicao;
+import main.services.BuscarPatrimonio;
 import main.services.BuscarSala;
+import main.view.LogadoView;
+import main.view.MenuView;
 
 public class PatrimonioController {
 
@@ -17,9 +20,23 @@ public class PatrimonioController {
         if(!buscarInstituicao.buscarInstituicaoByEmail(idInstituicao).equals("Nada") && buscarSala.buscarSala(numSala, unidadeSala, id) != null){
             patrimonio = new Patrimonio(tombo, descricao, estado, dataAquisicao, id, numSala, unidadeSala);
             PatrimonioModel patrimonioModel = new PatrimonioModel();
-            patrimonioModel.PatrimonioModel(patrimonio);
+            patrimonioModel.adicionarPatrimonio(patrimonio);
         }else{
             System.out.println("Instituição ou sala não encontrada");
         }
+    }
+
+    public void removePatrimonio(String numeroTombo, String email){
+        BuscarInstituicao buscarInstituicao = new BuscarInstituicao();
+        BuscarPatrimonio buscarPatrimonio = new BuscarPatrimonio();
+        patrimonio = buscarPatrimonio.buscarPatrimonioByTombo(numeroTombo, buscarInstituicao.buscarInstituicaoByEmail(email));
+        if(patrimonio != null){
+            PatrimonioModel patrimonioModel = new PatrimonioModel();
+            patrimonioModel.removerPatrimonio(patrimonio);
+        }else{
+            System.out.println("Patrimonio não encontrado");
+        }
+        LogadoView.MenuLogado(email);
+
     }
 }

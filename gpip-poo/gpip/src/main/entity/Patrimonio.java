@@ -14,6 +14,15 @@ public class Patrimonio {
    private Sala sala;
 
 
+   public Patrimonio(Patrimonio patrimonio){
+       this.numeroTombo = patrimonio.getNumeroTombo();
+       this.descricao = patrimonio.getDescricao();
+       this.estado = patrimonio.getEstado();
+       this.dataAquisicao = patrimonio.getDataAquisicao();
+       this.idInstituicao = patrimonio.getIdInstituicao();
+       this.sala = new Sala(patrimonio.getSala().getNumeroDaSala(), patrimonio.getSala().getUnidade(), idInstituicao);
+   }
+
     public Patrimonio(String tombo, String descricao, String estado, String dataAquisicao, String idInstituicao, String numSala, String unidadeSala) {
         this.numeroTombo = tombo;
         this.descricao = descricao;
@@ -77,7 +86,7 @@ public class Patrimonio {
         return idInstituicao;
     }
 
-    public String getPatrimonio(Patrimonio patrimonio){
+    public String getPatrimonioCompleto(Patrimonio patrimonio){
         return patrimonio.getNumeroTombo() + "," + patrimonio.getDescricao() + "," + patrimonio.getEstado() + "," + patrimonio.getDataAquisicao() + "," + patrimonio.getIdInstituicao() + "," + sala.getNumeroDaSala() + "," + sala.getUnidade();
     }
 }
