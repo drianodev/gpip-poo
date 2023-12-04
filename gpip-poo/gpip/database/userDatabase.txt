@@ -1,2 +1,6 @@
 1,je@gmail.com,123Jeiel,Jeiel Lucas,1,Admin
 2,al@gmail.com,123Alex,Alex Martins,2
+3,alexs@gmail.com,Aqwe123456,Alexsandro Martins,1
+4,Thanos@gmail.com,Thanos12345,Thanos Destruidor,2
+5,Leticia@gmail.com,Let123456,Leticia Sousa,1
+6,alan@gmail.com,Alan123456,Alan Feitosa,2
