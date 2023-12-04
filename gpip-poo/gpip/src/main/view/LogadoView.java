@@ -19,7 +19,6 @@ public class LogadoView {
         System.out.println("3- Registrar patrimônio");
         System.out.println("4- Remover patrimônio");
         System.out.println("5- Movimentar patrimônio");
-        System.out.println("6- Solicitar manutenção");
         System.out.println("==================================");
 
         try{
@@ -51,6 +50,8 @@ public class LogadoView {
                     moverPatrimonioView.MoverPatrimonio(email);
                     break;
                 default:
+                    System.out.println("Opção inválida");
+                    MenuLogado(email);
                     break;
             }
         }catch (InputMismatchException e){

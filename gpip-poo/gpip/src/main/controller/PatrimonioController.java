@@ -27,10 +27,10 @@ public class PatrimonioController {
             patrimonioModel.adicionarPatrimonio(patrimonio);
             System.out.println();
             System.out.println("Registro de Patrimônio feito com Sucesso!");
-            MenuView.menu();
+//            MenuView.menu();
         }else{
             System.out.println("Instituição ou sala não encontrada");
-            MenuView.menu();
+//            MenuView.menu();
         }
         LogadoView.MenuLogado(idInstituicao);
     }
