@@ -18,10 +18,22 @@ public class InstituicaoView {
         System.out.println("Bem vinde");
         System.out.print("Digite o nome da instituição: ");
         String nome = scanner.nextLine();
-        System.out.print(""); // Fazer localizacao
-        Localizacao localizacao = new Localizacao("1", "1", "1", "1", "1", "1");
-        System.out.println(localizacao);
-        InstituicaoController.CadastrarInstituicao(nome, localizacao);
+        System.out.print("Digite a rua: ");
+        String rua =scanner.nextLine();
+        System.out.print("Digite o numero: ");
+        String numero =scanner.nextLine();
+        System.out.print("Digite o bairro: ");
+        String bairro =scanner.nextLine();
+        System.out.print("Digite a cidade: ");
+        String cidade =scanner.nextLine();
+        System.out.print("Digite o estado: ");
+        String estado =scanner.nextLine();
+        System.out.print("Digite o cep: ");
+        String cep =scanner.nextLine();
+
+        Localizacao localizacao = new Localizacao(rua, numero, bairro, cidade, estado, cep); // Falta fazer validações
+        InstituicaoController instituicaoController = new InstituicaoController();
+        instituicaoController.CadastrarInstituicao(nome, localizacao);
         scanner.close();
     }
 }

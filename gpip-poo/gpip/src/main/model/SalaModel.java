@@ -14,7 +14,6 @@ public class SalaModel {
                 String numeroUnidade = partes[1];
                 String numeroInstituicao = partes[2];
                 if(numeroSala.equals(String.valueOf(numSala)) && numeroUnidade.equals(String.valueOf(numUnidade)) && numeroInstituicao.equals(instituicao)){
-                    System.out.println("Erro ao criar sala, já existente");
                     return false;
                 }
             }if((linha = reader.readLine()) == null ){

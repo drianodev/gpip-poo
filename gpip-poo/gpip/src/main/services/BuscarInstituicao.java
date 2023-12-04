@@ -18,4 +18,18 @@ public class BuscarInstituicao {
         }
         return "Nada";
     }
+    public boolean buscarInstituicaoById(String id){
+        try (BufferedReader reader = new BufferedReader(new FileReader("gpip/database/instituicaoDatabase.txt"));){
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                String [] partes = linha.split("|");
+                if(id.equals(partes[0])){
+                    return true;
+                }
+            }
+        }catch (IOException e){
+            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
+        return false;
+    }
 }

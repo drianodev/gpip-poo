@@ -5,15 +5,16 @@ import java.util.UUID;
 public class Sala {
 
     private UUID id;
-    private int unidade;
-    private int numeroDaSala;
+    private String unidade;
+    private String numeroDaSala;
     private Instituicao instituicao;
+    private String idInstituicao;
 
-    public Sala(int unidade, int numeroDaSala, Instituicao instituicao) {
+    public Sala(String numSala, String numUnidade, String id) {
         this.id = UUID.randomUUID();
-        this.unidade = unidade;
-        this.numeroDaSala = numeroDaSala;
-        this.instituicao = instituicao;
+        this.numeroDaSala = numSala;
+        this.unidade = numUnidade;
+        this.idInstituicao = id;
     }
 
     public UUID getId() {
@@ -24,19 +25,19 @@ public class Sala {
         this.id = id;
     }
 
-    public int getUnidade() {
+    public String getUnidade() {
         return unidade;
     }
 
-    public void setUnidade(int unidade) {
+    public void setUnidade(String unidade) {
         this.unidade = unidade;
     }
 
-    public int getNumeroDaSala() {
+    public String getNumeroDaSala() {
         return numeroDaSala;
     }
 
-    public void setNumeroDaSala(int numeroDaSala) {
+    public void setNumeroDaSala(String numeroDaSala) {
         this.numeroDaSala = numeroDaSala;
     }
 

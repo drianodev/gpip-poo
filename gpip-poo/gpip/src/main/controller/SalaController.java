@@ -2,6 +2,7 @@ package main.controller;
 
 import main.model.SalaModel;
 import main.services.BuscarInstituicao;
+import main.view.LogadoView;
 
 public class SalaController {
 
@@ -12,8 +13,13 @@ public class SalaController {
             SalaModel salaModel = new SalaModel();
             BuscarInstituicao buscarInstituicao = new BuscarInstituicao();
             if(!buscarInstituicao.buscarInstituicaoByEmail(email).equals("Nada")){
-                salaModel.criarSala(numSala, numUnidade, buscarInstituicao.buscarInstituicaoByEmail(email));
+                if(salaModel.criarSala(numSala, numUnidade, buscarInstituicao.buscarInstituicaoByEmail(email))){
+                    System.out.println("Sala criada com sucesso");
+                }else{
+                    System.out.println("Erro ao criar sala, já existente");
+                }
             }
+            LogadoView.MenuLogado(email);
         }
     }
 }

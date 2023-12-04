@@ -15,7 +15,7 @@ public class isValidInstituicao {
                     return true;
                 }
             }
-            System.out.println("Instituição não encontrada");
+
             return false;
         }catch (IOException e){
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());

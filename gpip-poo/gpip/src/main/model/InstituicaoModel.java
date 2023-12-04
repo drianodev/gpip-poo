@@ -4,8 +4,20 @@ import main.entity.Localizacao;
 
 import java.io.*;
 
+
+
 public class InstituicaoModel {
-    public void InstituicaoModel(String nome, Localizacao localizacao){
+
+    private String nome;
+    private Localizacao localizacao;
+    public InstituicaoModel(String nome, Localizacao localizacao) {
+        this.nome = nome;
+        this.localizacao = localizacao;
+    }
+
+    public boolean CadastroInstituicao(){
+        String local = localizacao.getLocalizacao();
+        System.out.println(local);
         String arquivo = "gpip/database/instituicaoDatabase.txt";
         int contador = 1;
         try (BufferedReader reader = new BufferedReader(new FileReader(arquivo));
@@ -13,19 +25,19 @@ public class InstituicaoModel {
             String linha;
             while ((linha = reader.readLine()) != null) {
                 String[] partes = linha.split(",");
-                    String localizacaoArquivo = partes[2].trim();
-                    if (localizacaoArquivo.equals(localizacao)) { // Aqui tem que comparar a string Localizacao no arquivo
-                        //com um objeto do tipo localizacao, isso vai dar erro, tem que ver se converte o objeto localizacao pra string antes ou algo do tipo
-                        System.out.println("retorna q instituicao existe");
-                    }
-                    contador++;
+                String localizacaoArquivo = partes[2].trim();
+                if (localizacaoArquivo.equals(local)){
+                    return false;
+                }
+                contador++;
             }
-
-            String novaInstituicao = contador + "," + nome + "," + localizacao;
+            String novaInstituicao = contador + "," + nome + "," + local;
             writer.write(novaInstituicao);
             writer.newLine();
+            return true;
         } catch (IOException e) {
             System.err.println("Erro ao ler ou escrever no arquivo: " + e.getMessage());
         }
+        return false;
     }
 }
