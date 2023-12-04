@@ -47,6 +47,19 @@ public class PatrimonioController {
             System.out.println("Patrimonio não encontrado");
         }
         LogadoView.MenuLogado(email);
+    }
 
+    public void moverPatrimonio(String numTombo, String email, String sala, String unidade){
+        BuscarInstituicao buscarInstituicao = new BuscarInstituicao();
+        BuscarPatrimonio buscarPatrimonio = new BuscarPatrimonio();
+        Patrimonio patrimonio = buscarPatrimonio.buscarPatrimonioByTombo(numTombo, buscarInstituicao.buscarInstituicaoByEmail(email));
+        if(patrimonio != null){
+            PatrimonioModel patrimonioModel = new PatrimonioModel();
+            patrimonioModel.moverPatrimonio(patrimonio, sala, unidade);
+        }else{
+            System.out.println("Falha ao encontrar o patrimônio");
+        }
+
+        LogadoView.MenuLogado(email);
     }
 }
